@@ -1,0 +1,31 @@
+﻿# Emergency Medical Protocols v1.2
+
+
+## Cardiac Symptoms
+- Chest pain radiating to left arm/jaw: Classify as EMERGENT
+- Action: Immediate ECG, cardiac enzymes, aspirin 325mg
+- Risk factors: Hypertension, smoking, diabetes
+
+
+## Neurological Symptoms
+- Sudden unilateral weakness + speech difficulty: EMERGENT
+- Action: STAT CT head, neurology consult
+- Time window for thrombolytics: <4.5hrs from onset
+
+
+## Pediatric Fever
+- <3 months with temp >38°C: EMERGENT
+- 3-36 months with temp >39°C + lethargy: URGENT
+- Action: Full septic workup if febrile seizure present
+
+
+## Burn Management
+- >10% BSA: EMERGENT
+- Facial/airway burns: EMERGENT
+- Action: Cool with room-temp water, no ice
+
+
+## Red Flags
+- Suicidal ideation: EMERGENT
+- Severe allergic reaction: EMERGENT
+- Acute vision loss: URGENT

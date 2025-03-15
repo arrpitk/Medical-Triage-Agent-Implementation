@@ -1,0 +1,3 @@
+Chest pain protocol:
+- Chest pain with radiation: Emergent
+- Requires ECG and aspirin

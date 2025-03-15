@@ -4,6 +4,8 @@ max_token_limit: 1024
 safety_checks:
   - bias_detection
   - phi_redaction
+
+
 rag:
   chunk_size: 512
   similarity_top_k: 3
@@ -17,3 +19,8 @@ prompt_template: |
   
   Respond using JSON format:
   {response_format}
+
+optimization:
+  model_quantization: 4bit
+  max_parallel_processes: 1
+  cache_dir: "./model_cache"

@@ -1,12 +1,14 @@
 FROM python:3.10-slim
 
-WORKDIR /workspace
-
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
-    poppler-utils \
+    build-essential \
+    libgomp1 \
     && rm -rf /var/lib/apt/lists/*
 
+WORKDIR /app
 COPY . .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+CMD ["streamlit", "run", "app/ui.py"]

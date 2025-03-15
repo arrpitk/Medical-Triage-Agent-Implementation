@@ -2,6 +2,7 @@
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from typing import List
+from loguru import logger
 
 class ConfigurableRAG:
     def __init__(self, config: dict):  # Ensure config is a dictionary
@@ -16,6 +17,12 @@ class ConfigurableRAG:
     def add_documents(self, documents: List[str]):
         self.vectorstore.add_texts(documents)
         
-    def query(self, question: str, k: int = 3) -> List[str]:
-        return self.vectorstore.similarity_search(question, k=k)
+    def query(self, question: str, k: int = 3):
+        try:
+            return self.vectorstore.similarity_search(question, k=k)
+        except Exception as e:
+            logger.error(f"RAG query failed: {str(e)}")
+            return []
+    
+    
     
