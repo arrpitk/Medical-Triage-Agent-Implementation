@@ -1,0 +1,16 @@
+[
+    {
+        "input": "32yo female with sudden vision loss",
+        "expected_output": {
+            "urgency": "emergent",
+            "conditions": ["Retinal detachment", "Stroke"]
+        }
+    },
+    {
+        "input": "28yo male with ankle pain after sports injury",
+        "expected_output": {
+            "urgency": "urgent",
+            "conditions": ["Sprain", "Fracture"]
+        }
+    }
+]

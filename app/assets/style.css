@@ -1,0 +1,82 @@
+/* Base Theme */
+:root {
+    --primary: #2c3e50;
+    --secondary: #3498db;
+    --accent: #e74c3c;
+    --background: #f9f9f9;
+}
+
+/* Main Container */
+.stApp {
+    background-color: var(--background);
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* Headers */
+h1 {
+    color: var(--primary);
+    border-bottom: 2px solid var(--secondary);
+    padding-bottom: 0.5rem;
+}
+
+/* Input Areas */
+.stTextArea textarea {
+    border: 2px solid var(--secondary);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+/* Buttons */
+.stButton>button {
+    background-color: var(--secondary);
+    color: white;
+    border-radius: 25px;
+    padding: 0.5rem 2rem;
+    transition: all 0.3s;
+}
+
+.stButton>button:hover {
+    background-color: var(--primary);
+    transform: scale(1.05);
+}
+
+/* Risk Indicators */
+.risk-high {
+    color: var(--accent);
+    font-weight: 700;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Explanation Boxes */
+.stJson {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+    background: white;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .stSidebar {
+        width: 100% !important;
+    }
+    
+    .stButton>button {
+        width: 100%;
+    }
+}
+
+/* Ethical Guidelines Callout */
+.guidelines-callout {
+    padding: 1rem;
+    background: #e8f4f8;
+    border-left: 4px solid var(--secondary);
+    margin: 1rem 0;
+}   

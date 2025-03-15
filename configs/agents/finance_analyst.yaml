@@ -1,0 +1,9 @@
+agent_type: financial_analyst
+base_model: google/flan-t5-small
+embedding_model: sentence-transformers/all-mpnet-base-v2
+max_token_limit: 512
+safety_checks:
+  - fact_verification
+rag:
+  chunk_size: 1024
+  similarity_top_k: 5

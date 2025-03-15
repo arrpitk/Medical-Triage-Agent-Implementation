@@ -1,0 +1,7 @@
+hardware_constraints:
+  max_ram_usage: 6GB
+  max_model_size: 2GB
+resource_management:
+  model_loading: 8bit
+  cache_strategy: lru
+github_codespaces: true

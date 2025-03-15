@@ -1,0 +1,19 @@
+# Optimized for M1/M2 and older Intel Macs
+python==3.10.13
+fastapi==0.104.1
+uvicorn==0.24.0.post1
+transformers==4.37.2
+accelerate==0.27.2
+bitsandbytes==0.42.0
+langchain==0.1.5
+chromadb==0.4.15
+pypdf==3.17.1
+pyyaml==6.0.1
+loguru==0.7.2
+scipy==1.11.4  # Required for some models
+streamlit==1.32.0
+plotly==5.19.0
+matplotlib==3.8.3
+shap==0.45.1
+python-docx==1.1.0
+unstructured==0.12.2
