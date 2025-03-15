@@ -1,15 +1,16 @@
-from langchain.vectorstores import Chroma
-from langchain.embeddings import HuggingFaceEmbeddings
+# In rag_engine.py
+from langchain_community.vectorstores import Chroma
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from typing import List
 
 class ConfigurableRAG:
-    def __init__(self, config: dict):
+    def __init__(self, config: dict):  # Ensure config is a dictionary
         self.embedder = HuggingFaceEmbeddings(
-            model_name=config["embedding_model"]
+            model_name=config.get("embedding_model", "sentence-transformers/all-MiniLM-L6-v2")
         )
         self.vectorstore = Chroma(
             embedding_function=self.embedder,
-            persist_directory=None  # In-memory
+            persist_directory=None
         )
         
     def add_documents(self, documents: List[str]):

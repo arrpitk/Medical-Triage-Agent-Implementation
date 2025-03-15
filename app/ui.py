@@ -1,5 +1,8 @@
 # Add to imports
 import base64
+import yaml
+import torch
+torch.set_grad_enabled(False)
 
 # Add after imports
 def inject_css():
@@ -16,10 +19,17 @@ def main():
     show_guidelines()
     # Rest of existing code
 
+import sys
+import os
+
+# Add parent directory to Python path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 
 import streamlit as st
 from core.workflows.medical_triage import MedicalTriageAgent
 from core.responsible_ai import BiasDetector, PHIRedactor
+
 import json
 
 # Initialize components
@@ -27,6 +37,16 @@ redactor = PHIRedactor()
 bias_detector = BiasDetector()
 
 def main():
+    
+    # Load configurations first
+    with open("configs/agents/medical_triage.yaml") as f:
+        agent_config = yaml.safe_load(f)
+
+    with open("configs/rag_config.yaml") as f:
+        rag_config = yaml.safe_load(f)
+
+    # Initialize components
+    agent = MedicalTriageAgent(agent_config, rag_config)
     st.set_page_config(page_title="Medical Triage Agent", layout="wide")
     
     # Sidebar Controls
@@ -44,10 +64,13 @@ def main():
     if st.button("Analyze"):
         with st.spinner("Processing..."):
             # Initialize Agent
-            agent = MedicalTriageAgent(
-                "configs/agents/medical_triage.yaml",
-                "configs/app_config.yaml"
-            )
+            # Load configurations first
+            
+    
+            
+
+# Initialize agent with config dicts
+            
             
             # Redact PHI
             clean_input = redactor.redact(user_input)

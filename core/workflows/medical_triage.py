@@ -1,14 +1,23 @@
 from core.agent_factory import ConfigurableAgent
 from core.rag_engine import ConfigurableRAG
+from transformers import pipeline
 from loguru import logger
+import yaml
 
 class MedicalTriageAgent:
-    def __init__(self, agent_config: str, rag_config: dict):
-        self.agent = ConfigurableAgent(agent_config)
+    def __init__(self, agent_config: dict, rag_config: dict):  # Accept config dicts directly
+        self.agent_config = agent_config
+        self.rag_config = rag_config
         self.rag = ConfigurableRAG(rag_config)
+        self.model = self._load_model()
         
-    def load_knowledge(self, documents: list):
-        self.rag.add_documents(documents)
+    def _load_model(self):
+        return pipeline(
+            task="text-generation",
+            model=self.agent_config["base_model"],
+            device_map="auto",
+            torch_dtype="auto"
+        )
         
     def analyze(self, patient_input: str):
         try:

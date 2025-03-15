@@ -13,12 +13,12 @@ class ConfigurableAgent:
     
     def _load_model(self):
         return pipeline(
-            task="text-generation",
-            model=self.config["base_model"],
-            device_map="auto",
-            load_in_8bit=True,
-            torch_dtype="auto"
-        )
+        task="text-generation",
+        model=self.config["base_model"],
+        device_map="auto",
+        torch_dtype="auto",
+        offload_folder="./offload"  # Add this line
+    )
     
     def generate(self, prompt: str):
         return self.model(

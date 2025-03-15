@@ -1,6 +1,5 @@
 agent_type: medical_triage
-base_model: TinyLlama/TinyLlama-1.1B-Chat-v1.0
-embedding_model: sentence-transformers/all-MiniLM-L6-v2
+base_model: "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
 max_token_limit: 1024
 safety_checks:
   - bias_detection
